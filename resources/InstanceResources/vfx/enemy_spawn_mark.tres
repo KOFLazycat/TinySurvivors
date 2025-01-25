@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=3 format=3 uid="uid://dm336ubved1wb"]
+
+[ext_resource type="Resource" uid="uid://df56ohm0c5hgd" path="res://resources/RoomResources/ysort_reference.tres" id="1_6ljet"]
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_55gwa"]
+
+[resource]
+resource_name = "Enemy Spawn Mark"
+script = ExtResource("2_55gwa")
+scene_path = "res://scenes/vfx/spawn_mark.tscn"
+parent_reference_resource = ExtResource("1_6ljet")

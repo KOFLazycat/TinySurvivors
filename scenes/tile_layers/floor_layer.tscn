@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://nnmr1nkpbyx"]
+
+[ext_resource type="TileSet" uid="uid://djdnwg27225jx" path="res://resources/tilesets/tileset_floors.tres" id="1_2ghv5"]
+[ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="2_u8jr4"]
+[ext_resource type="Resource" uid="uid://7v2ewi2kfoce" path="res://resources/RoomResources/floor_tilemap_reference.tres" id="3_2ghv5"]
+[ext_resource type="Script" uid="uid://c00g2gb810i8c" path="res://addons/great_games_library/nodes/Navigation/TileNavigationSetter.gd" id="4_fs0eg"]
+[ext_resource type="Resource" uid="uid://dwovmqrp63hw2" path="res://resources/arena_resources/obstacle_astargrid_resource.tres" id="5_2ghv5"]
+
+[node name="FloorLayer" type="TileMapLayer"]
+tile_set = ExtResource("1_2ghv5")
+use_kinematic_bodies = true
+
+[node name="ReferenceNodeSetter" type="Node" parent="." node_paths=PackedStringArray("reference_node")]
+script = ExtResource("2_u8jr4")
+reference_node = NodePath("..")
+reference_resource = ExtResource("3_2ghv5")
+
+[node name="TileNavigationSetter" type="Node" parent="." node_paths=PackedStringArray("tilemap_layer")]
+script = ExtResource("4_fs0eg")
+tilemap_layer = NodePath("..")
+astargrid_resource = ExtResource("5_2ghv5")

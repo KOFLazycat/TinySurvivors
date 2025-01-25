@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=3 format=3 uid="uid://btgr1i38xdp6g"]
+
+[ext_resource type="Resource" uid="uid://df56ohm0c5hgd" path="res://resources/RoomResources/ysort_reference.tres" id="1_lrpyu"]
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_dc6xp"]
+
+[resource]
+resource_name = "Health pickup"
+script = ExtResource("2_dc6xp")
+scene_path = "res://scenes/pickups/health_pickup.tscn"
+parent_reference_resource = ExtResource("1_lrpyu")

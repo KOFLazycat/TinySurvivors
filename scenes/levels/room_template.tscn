@@ -1,0 +1,160 @@
+[gd_scene load_steps=30 format=3 uid="uid://cyqpm3salhqo3"]
+
+[ext_resource type="PackedScene" uid="uid://b7epulhnnr8d3" path="res://addons/top_down/scenes/tile_layers/floor_layer.tscn" id="1_f8pn5"]
+[ext_resource type="PackedScene" uid="uid://cj0ewvpy5oege" path="res://addons/top_down/scenes/tile_layers/obstacle_layer.tscn" id="2_7t5fj"]
+[ext_resource type="Script" uid="uid://ck16bsyql1mac" path="res://addons/great_games_library/nodes/Navigation/TileCollisionGenerator.gd" id="3_i712p"]
+[ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="4_gs2v7"]
+[ext_resource type="Resource" uid="uid://ct82cq803r2si" path="res://addons/top_down/resources/RoomResources/obstacle_reference.tres" id="5_hh2y3"]
+[ext_resource type="Resource" uid="uid://bnmup4gi1ft42" path="res://addons/top_down/resources/RoomResources/behind_reference.tres" id="6_1xhli"]
+[ext_resource type="TileSet" uid="uid://dah24bbc4526" path="res://addons/top_down/resources/tilesets/tileset_isometric_walls.tres" id="7_xyt0p"]
+[ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://addons/top_down/resources/RoomResources/ysort_reference.tres" id="8_wkahy"]
+[ext_resource type="Resource" uid="uid://d16p36img8x6j" path="res://addons/top_down/resources/RoomResources/front_reference.tres" id="9_y0p38"]
+[ext_resource type="PackedScene" uid="uid://7ixxtkmuui6p" path="res://addons/top_down/scenes/main_camera.tscn" id="10_2h8j1"]
+[ext_resource type="PackedScene" uid="uid://bqh7iwpl0s1ha" path="res://addons/top_down/scenes/screen_effects/screen_effects.tscn" id="11_25fab"]
+[ext_resource type="PackedScene" uid="uid://deuehdcbbm5c1" path="res://addons/top_down/scenes/ui/game_hud.tscn" id="12_upfao"]
+[ext_resource type="Script" uid="uid://b5vu2tmrvxin4" path="res://addons/top_down/scripts/game/PlayerSpawner.gd" id="13_atl6j"]
+[ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://addons/top_down/resources/ReferenceNodeResources/player_reference.tres" id="14_rctgo"]
+[ext_resource type="Resource" uid="uid://ceuk0khv7rbvr" path="res://addons/top_down/resources/InstanceResources/actors/player_instance_resource.tres" id="15_ftca8"]
+[ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://addons/top_down/resources/global_resources/scene_transition_resource.tres" id="16_om0va"]
+[ext_resource type="PackedScene" uid="uid://cfaobhr3r5ymj" path="res://addons/top_down/scenes/arena/enemy_manager.tscn" id="17_sb7mc"]
+[ext_resource type="Script" uid="uid://bqvtxx78hbt4a" path="res://scripts/arena/SpawnPoint.gd" id="18_llwrr"]
+[ext_resource type="PackedScene" uid="uid://crddbd0tmxp5p" path="res://addons/top_down/scenes/arena/arena_entry.tscn" id="19_vlhl1"]
+[ext_resource type="Script" uid="uid://pmt0xspk7pa5" path="res://addons/top_down/scripts/game/ProcessingComponent.gd" id="20_fj8x3"]
+[ext_resource type="Resource" uid="uid://ini50pn76erv" path="res://addons/top_down/resources/global_resources/pause_resource.tres" id="21_qn0wk"]
+[ext_resource type="Resource" uid="uid://df4nqpa0at8qn" path="res://addons/top_down/resources/global_resources/transition_bool_resource.tres" id="22_u57xs"]
+[ext_resource type="Script" uid="uid://cu52cfvf4druk" path="res://addons/top_down/scripts/game/MusicSetter.gd" id="23_qw33o"]
+[ext_resource type="Script" uid="uid://fbon5xaremfb" path="res://addons/great_games_library/nodes/DebugPausing/DebugPausing.gd" id="24_heudy"]
+[ext_resource type="Script" uid="uid://s02u0xm0oepe" path="res://addons/great_games_library/nodes/utility/BackgroundColorSetter.gd" id="25_shblh"]
+[ext_resource type="Script" uid="uid://daieeahedkbby" path="res://addons/top_down/scripts/game/GameOverDetect.gd" id="26_0rm8n"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_pkurn"]
+points = PackedVector2Array(-16, 0, 0, 8, 16, 0, 0, -8)
+
+[sub_resource type="InputEventKey" id="InputEventKey_558eq"]
+device = -1
+keycode = 80
+unicode = 112
+
+[sub_resource type="InputEventKey" id="InputEventKey_06obg"]
+device = -1
+keycode = 91
+unicode = 91
+
+[node name="Room" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="FloorLayer" parent="Background" instance=ExtResource("1_f8pn5")]
+
+[node name="ObstacleLayer" parent="Background" instance=ExtResource("2_7t5fj")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background/ObstacleLayer" node_paths=PackedStringArray("tilemap_layer", "static_body")]
+z_index = 2
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("3_i712p")
+tilemap_layer = NodePath("..")
+static_body = NodePath(".")
+tile_shape = SubResource("ConvexPolygonShape2D_pkurn")
+
+[node name="ReferenceObstacle" type="Node" parent="Background/ObstacleLayer" node_paths=PackedStringArray("reference_node")]
+script = ExtResource("4_gs2v7")
+reference_node = NodePath("..")
+reference_resource = ExtResource("5_hh2y3")
+
+[node name="Behind" type="Node2D" parent="."]
+
+[node name="ReferenceBehind" type="Node" parent="Behind" node_paths=PackedStringArray("reference_node")]
+script = ExtResource("4_gs2v7")
+reference_node = NodePath("..")
+reference_resource = ExtResource("6_1xhli")
+
+[node name="WallLayer_Ysorted" parent="." instance=ExtResource("2_7t5fj")]
+y_sort_enabled = true
+tile_set = ExtResource("7_xyt0p")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WallLayer_Ysorted" node_paths=PackedStringArray("tilemap_layer", "static_body")]
+z_index = 2
+collision_layer = 9
+collision_mask = 0
+script = ExtResource("3_i712p")
+tilemap_layer = NodePath("..")
+static_body = NodePath(".")
+tile_shape = SubResource("ConvexPolygonShape2D_pkurn")
+
+[node name="ReferenceYsort" type="Node" parent="WallLayer_Ysorted" node_paths=PackedStringArray("reference_node")]
+script = ExtResource("4_gs2v7")
+reference_node = NodePath("..")
+reference_resource = ExtResource("8_wkahy")
+
+[node name="Front" type="Node2D" parent="."]
+
+[node name="ReferenceFront" type="Node" parent="Front" node_paths=PackedStringArray("reference_node")]
+script = ExtResource("4_gs2v7")
+reference_node = NodePath("..")
+reference_resource = ExtResource("9_y0p38")
+
+[node name="MainCamera" parent="." instance=ExtResource("10_2h8j1")]
+editor_draw_screen = false
+
+[node name="ScreenEffects" parent="." instance=ExtResource("11_25fab")]
+
+[node name="UI" parent="." instance=ExtResource("12_upfao")]
+
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+position = Vector2(195, 150)
+script = ExtResource("13_atl6j")
+player_reference = ExtResource("14_rctgo")
+player_instance_resource = ExtResource("15_ftca8")
+scene_transition_resource = ExtResource("16_om0va")
+
+[node name="EnemyManager" parent="." instance=ExtResource("17_sb7mc")]
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn_0" type="Marker2D" parent="EnemySpawnPoints"]
+script = ExtResource("18_llwrr")
+
+[node name="Spawn_1" type="Marker2D" parent="EnemySpawnPoints"]
+script = ExtResource("18_llwrr")
+
+[node name="Spawn_2" type="Marker2D" parent="EnemySpawnPoints"]
+script = ExtResource("18_llwrr")
+
+[node name="Spawn_3" type="Marker2D" parent="EnemySpawnPoints"]
+script = ExtResource("18_llwrr")
+
+[node name="ArenaEntry" parent="." instance=ExtResource("19_vlhl1")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="PauseProcessingComponent" type="Node" parent="." node_paths=PackedStringArray("paused_nodes")]
+script = ExtResource("20_fj8x3")
+bool_resource = ExtResource("21_qn0wk")
+paused_nodes = [NodePath("..")]
+paused_state = 4
+
+[node name="TransitionProcessingComponent" type="Node" parent="." node_paths=PackedStringArray("paused_nodes")]
+script = ExtResource("20_fj8x3")
+bool_resource = ExtResource("22_u57xs")
+paused_nodes = [NodePath("..")]
+paused_state = 4
+
+[node name="MusicSetter" type="Node" parent="."]
+script = ExtResource("23_qw33o")
+music_name = "game"
+
+[node name="DebugPausing" type="Node" parent="." node_paths=PackedStringArray("stopped_node")]
+script = ExtResource("24_heudy")
+frame_input = SubResource("InputEventKey_558eq")
+release_input = SubResource("InputEventKey_06obg")
+stopped_node = NodePath("..")
+
+[node name="BackgroundColor" type="Node" parent="."]
+script = ExtResource("25_shblh")
+color = Color(0.0196078, 0.0352941, 0.0784314, 1)
+
+[node name="GameOverDetect" type="Node" parent="."]
+script = ExtResource("26_0rm8n")
+player_reference = ExtResource("14_rctgo")
+game_over_scene_path = "res://addons/top_down/scenes/ui/screens/game_over.tscn"

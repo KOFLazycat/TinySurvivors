@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InstanceResource" load_steps=3 format=3 uid="uid://dmux6eitkykc4"]
+
+[ext_resource type="Resource" uid="uid://df56ohm0c5hgd" path="res://resources/RoomResources/ysort_reference.tres" id="1_sfjpi"]
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="2_sills"]
+
+[resource]
+resource_name = "Slime Small instance resource"
+script = ExtResource("2_sills")
+scene_path = "res://scenes/actors/slime_small.tscn"
+parent_reference_resource = ExtResource("1_sfjpi")

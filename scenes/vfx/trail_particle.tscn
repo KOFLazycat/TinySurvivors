@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://i63v4tivoo1k"]
+
+[ext_resource type="Texture2D" uid="uid://dk1ia3kwvok4m" path="res://assets/images/vfx/vfx_particle_0_strip10.png" id="1_lm15d"]
+[ext_resource type="Material" uid="uid://dbvmd4gpxsqru" path="res://resources/ParticleProcessMaterial/bullet_process_material.tres" id="2_xo2re"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnjo6"]
+atlas = ExtResource("1_lm15d")
+region = Rect2(80, 0, 16, 16)
+
+[node name="TrailParticle" type="GPUParticles2D"]
+texture = SubResource("AtlasTexture_nnjo6")
+interpolate = false
+process_material = ExtResource("2_xo2re")
