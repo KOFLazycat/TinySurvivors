@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundResource" load_steps=3 format=3 uid="uid://vn1vmo6dnhv6"]
 
 [ext_resource type="Script" uid="uid://bmrpiu8cmr12w" path="res://addons/great_games_library/resources/SoundResource/SoundResource.gd" id="1_h53w6"]
-[ext_resource type="AudioStream" uid="uid://b0m2l5yigl5qa" path="res://addons/top_down/assets/sounds/kill_0.wav" id="2_aoqtl"]
+[ext_resource type="AudioStream" uid="uid://ik2qsxpgmrw7" path="res://assets/sounds/kill_0.wav" id="2_aoqtl"]
 
 [resource]
 resource_name = "Kill Player"

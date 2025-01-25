@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bva2aipy5ku03"]
 
-[ext_resource type="Shader" uid="uid://bm80kcv8wkgsw" path="res://addons/top_down/scripts/shaders/transition.gdshader" id="1_4tftu"]
+[ext_resource type="Shader" uid="uid://bm80kcv8wkgsw" path="res://scripts/shaders/transition.gdshader" id="1_4tftu"]
 
 [resource]
 shader = ExtResource("1_4tftu")

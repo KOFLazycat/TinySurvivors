@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundResource" load_steps=3 format=3 uid="uid://l4d2yc04omqd"]
 
 [ext_resource type="Script" uid="uid://bmrpiu8cmr12w" path="res://addons/great_games_library/resources/SoundResource/SoundResource.gd" id="1_8ny2k"]
-[ext_resource type="AudioStream" uid="uid://cumk7fpsrnr6h" path="res://addons/top_down/assets/sounds/split_1.wav" id="2_76mec"]
+[ext_resource type="AudioStream" uid="uid://ci0cpfgk04uc" path="res://assets/sounds/split_1.wav" id="2_76mec"]
 
 [resource]
 resource_name = "Zombie split"

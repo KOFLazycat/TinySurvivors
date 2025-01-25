@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://80ydftjspcqc"]
 
-[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://addons/top_down/assets/images/shadow.png" id="1_vjesd"]
-[ext_resource type="Texture2D" uid="uid://jq84ixs4gdqc" path="res://addons/top_down/assets/images/characters/zombie_16x16_strip8.png" id="2_s5tad"]
+[ext_resource type="Texture2D" uid="uid://bt22bllfjepk" path="res://assets/images/shadow.png" id="1_vjesd"]
+[ext_resource type="Texture2D" uid="uid://c5j1585p5qw4d" path="res://assets/images/characters/zombie_16x16_strip8.png" id="2_s5tad"]
 [ext_resource type="Script" uid="uid://c0aipoimc2hru" path="res://addons/great_games_library/resources/InstanceResource/PoolNode.gd" id="3_l8jy5"]
 
 [sub_resource type="Animation" id="Animation_48kfv"]
@@ -157,7 +157,6 @@ modulate = Color(0.0196078, 0.0352941, 0.0784314, 0.454902)
 texture = ExtResource("1_vjesd")
 
 [node name="Body" type="Node2D" parent="."]
-scale = Vector2(1e-05, 1e-05)
 
 [node name="Stretch" type="Node2D" parent="Body"]
 
@@ -168,13 +167,13 @@ hframes = 8
 
 [node name="CharacterAnimator" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_esakt")
+&"": SubResource("AnimationLibrary_esakt")
 }
 autoplay = "died"
 
 [node name="ColorFlash" type="AnimationPlayer" parent="Body/Stretch/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_tbujk")
+&"": SubResource("AnimationLibrary_tbujk")
 }
 
 [node name="PoolNode" type="Node" parent="." node_paths=PackedStringArray("ready_nodes", "animation_player_list")]

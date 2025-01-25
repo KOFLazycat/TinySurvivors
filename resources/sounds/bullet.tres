@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SoundResource" load_steps=3 format=3 uid="uid://bxrxcl6jipfxh"]
 
 [ext_resource type="Script" uid="uid://bmrpiu8cmr12w" path="res://addons/great_games_library/resources/SoundResource/SoundResource.gd" id="1_4kjiq"]
-[ext_resource type="AudioStream" uid="uid://yoirp5pm7keg" path="res://addons/top_down/assets/sounds/shoot_1.wav" id="2_s7p14"]
+[ext_resource type="AudioStream" uid="uid://cf55mhe25mvkm" path="res://assets/sounds/shoot_1.wav" id="2_s7p14"]
 
 [resource]
 resource_name = "Bullet"

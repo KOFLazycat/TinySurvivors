@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bue61fdmueei4"]
+
+[ext_resource type="Theme" uid="uid://6rfptoycijor" path="res://resources/theme/game_gui_theme.theme" id="1_4wm8l"]
+[ext_resource type="Material" uid="uid://criixuehyr26m" path="res://resources/materials/menu_button.material" id="2_4wm8l"]
+[ext_resource type="Script" uid="uid://b0sifn6yh823f" path="res://scripts/ui/ButtonAnimation.gd" id="3_o4dlj"]
+[ext_resource type="Resource" uid="uid://8r830ht07m1x" path="res://resources/sounds/button_press.tres" id="4_4wm8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rrpg3"]
+
+[node name="MenuButton" type="PanelContainer"]
+offset_right = 400.0
+offset_bottom = 100.0
+theme = ExtResource("1_4wm8l")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_rrpg3")
+
+[node name="Button" type="Button" parent="."]
+material = ExtResource("2_4wm8l")
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Name"
+
+[node name="ButtonAnimation" type="Node" parent="." node_paths=PackedStringArray("button", "label")]
+script = ExtResource("3_o4dlj")
+button = NodePath("../Button")
+label = NodePath("../Label")
+pressed_sound = ExtResource("4_4wm8l")
