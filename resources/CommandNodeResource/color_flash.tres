@@ -1,6 +1,0 @@
-[gd_resource type="Resource" script_class="CommandNodeResource" load_steps=2 format=3 uid="uid://di0d7vnsi4g61"]
-
-[ext_resource type="Script" uid="uid://dkeo3bk41xtw8" path="res://addons/great_games_library/resources/ReferenceNodeResource/CommandNodeResource.gd" id="1_5tds1"]
-
-[resource]
-script = ExtResource("1_5tds1")
