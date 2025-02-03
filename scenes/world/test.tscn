@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://23tu1y40hl2t"]
+
+[ext_resource type="Script" uid="uid://dpuxuju7geka6" path="res://scenes/world/test.gd" id="1_yokrj"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_yokrj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0

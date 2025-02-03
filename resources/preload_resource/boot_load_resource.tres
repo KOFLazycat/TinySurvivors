@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="PreloadResource" load_steps=35 format=3 uid="uid://bk0svoela4oim"]
+
+[ext_resource type="Script" uid="uid://bbnccrapnv54n" path="res://addons/great_games_library/resources/InstanceResource/InstanceResource.gd" id="1_xiu2r"]
+[ext_resource type="Material" uid="uid://dh55irc80dvm7" path="res://resources/materials/dust_particle_material.tres" id="1_xtqay"]
+[ext_resource type="Script" uid="uid://cx2ntvqjbk078" path="res://scripts/game/preload_resource.gd" id="2_eldcr"]
+[ext_resource type="Resource" uid="uid://ceuk0khv7rbvr" path="res://resources/instance_resources/actors/player_instance_resource.tres" id="3_mbfij"]
+[ext_resource type="Resource" uid="uid://dyfuc7bon78d" path="res://resources/instance_resources/vfx/dead/player_dead_instance_resource.tres" id="4_3g8p8"]
+[ext_resource type="Resource" uid="uid://c05ys7ybsfv4u" path="res://resources/instance_resources/actors/zomby_instance_resource.tres" id="5_0aoye"]
+[ext_resource type="Resource" uid="uid://h86cdxneli8u" path="res://resources/instance_resources/vfx/dead/zomby_dead_instance_resource.tres" id="6_mc7ki"]
+[ext_resource type="Resource" uid="uid://ddp7qf0qghy82" path="res://resources/instance_resources/actors/zomby_crawler_instance_resource.tres" id="7_xx2x8"]
+[ext_resource type="Resource" uid="uid://bx3gvcma6vvg" path="res://resources/instance_resources/vfx/dead/zomby_crawler_dead_instance_resource.tres" id="8_jdwh7"]
+[ext_resource type="Resource" uid="uid://cwxx7lc1yjet4" path="res://resources/instance_resources/actors/slime_instance_resource.tres" id="9_v02cn"]
+[ext_resource type="Resource" uid="uid://lm63dcddpjhf" path="res://resources/instance_resources/vfx/dead/slime_dead_instance_resource.tres" id="10_bc82w"]
+[ext_resource type="Resource" uid="uid://bwaqqrp3vlmbc" path="res://resources/instance_resources/actors/slime_small_instance_resource.tres" id="11_s3yar"]
+[ext_resource type="Resource" uid="uid://weoefubhnbf" path="res://resources/instance_resources/vfx/dead/slime_small_dead_instance_resource.tres" id="12_cnofv"]
+[ext_resource type="Resource" uid="uid://d1ui7w7atv8wt" path="res://resources/instance_resources/projectiles/gun_bullet_instance_resource.tres" id="13_fiavc"]
+[ext_resource type="Resource" uid="uid://f7qtvi0nk5sx" path="res://resources/instance_resources/projectiles/shotgun_bullet_instance_resource.tres" id="14_qguis"]
+[ext_resource type="Resource" uid="uid://cw030o04i08yd" path="res://resources/instance_resources/projectiles/assault_bullet_instance_resource.tres" id="15_dtmhn"]
+[ext_resource type="Material" uid="uid://by1613lxovtnf" path="res://resources/particle_process_material/bullet_process_material.tres" id="16_7tl5n"]
+[ext_resource type="Resource" uid="uid://o8teeob07t1x" path="res://resources/instance_resources/projectiles/sword_projectile_instance_resource.tres" id="16_fecnt"]
+[ext_resource type="Material" uid="uid://corlu7mpg0puk" path="res://resources/particle_process_material/dust_process_material.tres" id="17_6o1hu"]
+[ext_resource type="Shader" uid="uid://wr0huhjuo6vd" path="res://scripts/shaders/color_flash.gdshader" id="17_aoe6i"]
+[ext_resource type="Resource" uid="uid://djdgiocrbvmt8" path="res://resources/instance_resources/projectiles/sword_slash_instance_resource.tres" id="17_bryw4"]
+[ext_resource type="Resource" uid="uid://d1e4s216ukuhw" path="res://resources/instance_resources/projectiles/zombie_slash_instance_resource.tres" id="18_3ren3"]
+[ext_resource type="Shader" uid="uid://cb0xpqju4kp1r" path="res://scripts/shaders/control_shader.gdshader" id="18_xsa8j"]
+[ext_resource type="Resource" uid="uid://xbek2osd7l4w" path="res://resources/instance_resources/vfx/damage_points_instance_resource.tres" id="19_7wy07"]
+[ext_resource type="Shader" uid="uid://cq82xbhcrogfa" path="res://scripts/shaders/dust_partickle.gdshader" id="19_ul7r7"]
+[ext_resource type="Resource" uid="uid://s3oxaww7qjgi" path="res://resources/instance_resources/vfx/impact_instance_resource.tres" id="20_0pggs"]
+[ext_resource type="Shader" uid="uid://ceaddx7fs7ydx" path="res://scripts/shaders/h_separator_line.gdshader" id="20_ouhki"]
+[ext_resource type="Shader" uid="uid://cm0gf4w5vw8cg" path="res://scripts/shaders/progress_fill.gdshader" id="21_4fwti"]
+[ext_resource type="Resource" uid="uid://bc5djwa8gc2df" path="res://resources/instance_resources/pickups/health_pickup_instance_resource.tres" id="21_hg08p"]
+[ext_resource type="Resource" uid="uid://cd4jt13gwv8bs" path="res://resources/instance_resources/vfx/enemy_spawn_mark.tres" id="22_7nrnc"]
+[ext_resource type="Shader" uid="uid://bpatyprq4mymt" path="res://scripts/shaders/spawn_ring.gdshader" id="22_kxkjv"]
+[ext_resource type="Shader" uid="uid://bm80kcv8wkgsw" path="res://scripts/shaders/transition.gdshader" id="23_5yrx8"]
+[ext_resource type="Resource" uid="uid://way0xfgx53ix" path="res://resources/instance_resources/vfx/spawn_dust_instance.tres" id="23_gtlv3"]
+[ext_resource type="Resource" uid="uid://bvrv6nddhxgp0" path="res://resources/instance_resources/vfx/crawler_blood_instance.tres" id="24_e4vp2"]
+
+[resource]
+script = ExtResource("2_eldcr")
+instance_resource_list = Array[ExtResource("1_xiu2r")]([ExtResource("3_mbfij"), ExtResource("4_3g8p8"), ExtResource("5_0aoye"), ExtResource("6_mc7ki"), ExtResource("7_xx2x8"), ExtResource("8_jdwh7"), ExtResource("9_v02cn"), ExtResource("10_bc82w"), ExtResource("11_s3yar"), ExtResource("12_cnofv"), ExtResource("13_fiavc"), ExtResource("14_qguis"), ExtResource("15_dtmhn"), ExtResource("16_fecnt"), ExtResource("17_bryw4"), ExtResource("18_3ren3"), ExtResource("19_7wy07"), ExtResource("20_0pggs"), ExtResource("21_hg08p"), ExtResource("22_7nrnc"), ExtResource("23_gtlv3"), ExtResource("24_e4vp2")])
+particle_process_material_list = Array[Material]([ExtResource("16_7tl5n"), ExtResource("17_6o1hu")])
+shader2d_list = Array[Shader]([ExtResource("17_aoe6i"), ExtResource("18_xsa8j"), ExtResource("19_ul7r7"), ExtResource("20_ouhki"), ExtResource("21_4fwti"), ExtResource("22_kxkjv"), ExtResource("23_5yrx8")])
+canvas_material_list = Array[Material]([ExtResource("1_xtqay")])
+packed_scenes_list = Array[String](["res://addons/top_down/scenes/levels/room_start.tscn", "res://addons/top_down/scenes/levels/room_0.tscn"])
