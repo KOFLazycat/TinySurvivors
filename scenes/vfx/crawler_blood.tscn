@@ -7,7 +7,7 @@
 [node name="CrawlerBlood" type="GPUParticles2D"]
 material = ExtResource("1_kqgv6")
 amount = 32
-process_material = ExtResource("2_iay0c")
 texture = ExtResource("3_ftkqp")
 lifetime = 3.0
 randomness = 1.0
+process_material = ExtResource("2_iay0c")
