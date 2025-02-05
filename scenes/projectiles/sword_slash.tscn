@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://c6ys2qs8aeu8n"]
 
-[ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://addons/top_down/scenes/projectiles/projectile.tscn" id="1_lwexf"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_mr7yn"]
-[ext_resource type="Texture2D" uid="uid://bevk5id3o0bei" path="res://addons/top_down/assets/images/shadow.png" id="2_pfam2"]
-[ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://addons/top_down/scenes/vfx/trail_particle.tscn" id="3_gx0bp"]
-[ext_resource type="Texture2D" uid="uid://ddyug4weofr3x" path="res://addons/top_down/assets/images/vfx/slash_3_strip4.png" id="4_u6vsr"]
-[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://addons/top_down/resources/global_resources/axis_multiplication_resource.tres" id="6_gnksn"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/weapon_system/projectile/ProjectileSpawner.gd" id="6_whjok"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/weapon_system/projectile/SubProjectileManager.gd" id="7_n74ie"]
-[ext_resource type="Resource" uid="uid://o8teeob07t1x" path="res://addons/top_down/resources/InstanceResources/projectiles/sword_projectile_instance_resource.tres" id="10_5rio8"]
+[ext_resource type="PackedScene" uid="uid://beifde6xst23w" path="res://scenes/projectiles/projectile.tscn" id="1_lwexf"]
+[ext_resource type="Script" uid="uid://csjpbdq3d13rl" path="res://scripts/damage/properties/damage_type_resource.gd" id="2_mr7yn"]
+[ext_resource type="Texture2D" uid="uid://drlnoao25nliq" path="res://assets/images/shadow.png" id="2_pfam2"]
+[ext_resource type="PackedScene" uid="uid://djobi3eqlcjvo" path="res://scenes/vfx/trail_particle.tscn" id="3_gx0bp"]
+[ext_resource type="Texture2D" uid="uid://b8ac80ienalus" path="res://assets/images/vfx/slash_3_strip4.png" id="4_u6vsr"]
+[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://resources/global_resources/axis_multiplication_resource.tres" id="6_gnksn"]
+[ext_resource type="Script" uid="uid://cc8oglk6k6hgo" path="res://scripts/weapon_system/projectile/projectile_spawner.gd" id="6_whjok"]
+[ext_resource type="Script" uid="uid://dmy4n0m0auw8r" path="res://scripts/weapon_system/projectile/sub_projectile_manager.gd" id="7_n74ie"]
+[ext_resource type="Resource" uid="uid://o8teeob07t1x" path="res://resources/instance_resources/projectiles/sword_projectile_instance_resource.tres" id="10_5rio8"]
 
 [sub_resource type="Resource" id="Resource_78e1m"]
 script = ExtResource("2_mr7yn")
