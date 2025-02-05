@@ -1,0 +1,83 @@
+[gd_scene load_steps=16 format=3 uid="uid://do8p6aamuv46h"]
+
+[ext_resource type="Script" uid="uid://dh7y8gm7ffqjg" path="res://scripts/weapon_system/weapon.gd" id="1_wo85b"]
+[ext_resource type="Texture2D" uid="uid://bho7eucocnqsk" path="res://assets/images/weapon/gun_0.png" id="2_i2035"]
+[ext_resource type="Script" uid="uid://csjpbdq3d13rl" path="res://scripts/damage/properties/damage_type_resource.gd" id="2_v23wb"]
+[ext_resource type="Script" uid="uid://cc8oglk6k6hgo" path="res://scripts/weapon_system/projectile/projectile_spawner.gd" id="3_bmtwx"]
+[ext_resource type="Script" uid="uid://vu1uoqfhi7t3" path="res://scripts/damage/properties/damage_data_resource.gd" id="3_kraft"]
+[ext_resource type="Script" uid="uid://gp706vrf5qxr" path="res://scripts/weapon_system/weapon_rotation.gd" id="3_tyiow"]
+[ext_resource type="Script" uid="uid://dow5li2suss44" path="res://scripts/weapon_system/weapon_animation_trigger.gd" id="4_efjwn"]
+[ext_resource type="Script" uid="uid://0j8h8jwr0bbk" path="res://scripts/damage/properties/damage_status_resource.gd" id="4_ljeda"]
+[ext_resource type="Script" uid="uid://dpsvqj31f4ucl" path="res://scripts/weapon_system/spread_shot.gd" id="5_mx0vu"]
+[ext_resource type="Script" uid="uid://cf10u1aexa5g2" path="res://scripts/weapon_system/weapon_trigger.gd" id="6_gfbfl"]
+[ext_resource type="Script" uid="uid://bf8jgfcf6rp0a" path="res://scripts/weapon_system/weapon_kickback.gd" id="6_spkuj"]
+[ext_resource type="Script" uid="uid://bqlk1q02nva8n" path="res://scripts/weapon_system/projectile/projectile_interval.gd" id="7_surdb"]
+[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://resources/global_resources/axis_multiplication_resource.tres" id="9_x0q43"]
+
+[sub_resource type="Resource" id="Resource_pkull"]
+script = ExtResource("3_kraft")
+base_damage = Array[ExtResource("2_v23wb")]([])
+critical_chance = 0.3
+critical_multiply = 1.5
+status_list = Array[ExtResource("4_ljeda")]([])
+hit_list = []
+report_callback = Callable()
+transmission_name = &""
+state = -1
+valid = true
+version = 0
+not_saved = false
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qujdc"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_wo85b")
+damage_data_resource = SubResource("Resource_pkull")
+
+[node name="RotatedNode" type="Node2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="RotatedNode"]
+texture = ExtResource("2_i2035")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotatedNode/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_qujdc")
+}
+
+[node name="WeaponRotation" type="Node" parent="." node_paths=PackedStringArray("weapon", "rotate_node")]
+script = ExtResource("3_tyiow")
+weapon = NodePath("..")
+rotate_node = NodePath("../RotatedNode")
+
+[node name="WeaponKickback" type="Node" parent="." node_paths=PackedStringArray("weapon", "weapon_trigger")]
+script = ExtResource("6_spkuj")
+weapon = NodePath("..")
+weapon_trigger = NodePath("../WeaponTrigger")
+kickback_strength = 30.0
+
+[node name="WeaponTrigger" type="Node" parent="." node_paths=PackedStringArray("weapon", "projectile_spawner")]
+script = ExtResource("6_gfbfl")
+weapon = NodePath("..")
+projectile_spawner = NodePath("../ProjectileSpawner")
+
+[node name="ProjectileInterval" type="Node" parent="WeaponTrigger" node_paths=PackedStringArray("weapon_trigger")]
+script = ExtResource("7_surdb")
+weapon_trigger = NodePath("..")
+interval = 1.0
+
+[node name="AnimationTrigger" type="Node" parent="WeaponTrigger" node_paths=PackedStringArray("weapon_trigger", "animation_player")]
+script = ExtResource("4_efjwn")
+weapon_trigger = NodePath("..")
+animation_player = NodePath("../../RotatedNode/Sprite2D/AnimationPlayer")
+
+[node name="ProjectileSpawner" type="Node" parent="."]
+script = ExtResource("3_bmtwx")
+axis_multiplication_resource = ExtResource("9_x0q43")
+initial_distance = 10.0
+new_damage = true
+
+[node name="SpreadShot" type="Node" parent="ProjectileSpawner" node_paths=PackedStringArray("projectile_spawner")]
+script = ExtResource("5_mx0vu")
+projectile_spawner = NodePath("..")
+random_angle_offset = 5.0
