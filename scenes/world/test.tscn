@@ -5,11 +5,11 @@
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="3_37g75"]
 [ext_resource type="Script" uid="uid://dmiev5vcr3jo3" path="res://scripts/actor/actor_stats_resource.gd" id="4_xrc3a"]
 [ext_resource type="Resource" uid="uid://c61lm3lfv4u6h" path="res://resources/health_resource/player_health.tres" id="5_p2p2d"]
-[ext_resource type="Script" path="res://scripts/actor/push_resource.gd" id="6_1626j"]
+[ext_resource type="Script" uid="uid://1v8g05dfkx4g" path="res://scripts/actor/push_resource.gd" id="6_1626j"]
 [ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="7_27dlr"]
 [ext_resource type="Script" uid="uid://m8yktmc6aswm" path="res://scripts/input/input_resource.gd" id="8_1nm11"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://resources/global_resources/score_resource.tres" id="9_avmm1"]
-[ext_resource type="Script" path="res://scripts/damage/damage_resource.gd" id="10_a11d0"]
+[ext_resource type="Script" uid="uid://dgktxwaoxuao5" path="res://scripts/damage/damage_resource.gd" id="10_a11d0"]
 [ext_resource type="Script" uid="uid://cwgxak27q4k56" path="res://scripts/weapon_system/weapon_manager.gd" id="11_kafaw"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="11_knv3m"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://resources/room_resources/ysort_reference.tres" id="12_871wp"]
@@ -152,7 +152,6 @@ reference_resource = ExtResource("12_871wp")
 autostart = true
 
 [node name="WeaponManager" type="Node2D" parent="." node_paths=PackedStringArray("resource_node")]
-position = Vector2(93, 65)
 script = ExtResource("11_kafaw")
 auto_instance_weapons = Array[PackedScene]([ExtResource("12_erupl")])
 resource_node = NodePath("../ResourceNode")
@@ -168,3 +167,6 @@ position_node = NodePath("..")
 aim_offset = Vector2(0, 8)
 resource_node = NodePath("../ResourceNode")
 action_resource = ExtResource("15_hh2ro")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
