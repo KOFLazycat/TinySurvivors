@@ -96,6 +96,7 @@ func _init_action(action_name:StringName, event_list:Array, deadzone:float = 0.5
 	for event:InputEvent in event_list:
 		if InputMap.action_has_event(action_name, event):
 			continue
+		print(action_name)
 		InputMap.action_add_event(action_name, event)
 
 func _add_action(action_name:StringName)->void:

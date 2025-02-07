@@ -5,6 +5,7 @@ extends Node2D
 
 
 func _ready() -> void:
+	PersistentData.saveable_list[0].load_resource()
 	timer.timeout.connect(on_timer_timeout)
 	Music.start("game")
 
