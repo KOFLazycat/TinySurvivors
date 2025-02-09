@@ -14,9 +14,9 @@
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="11_knv3m"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://resources/room_resources/ysort_reference.tres" id="12_871wp"]
 [ext_resource type="PackedScene" uid="uid://ghnv48d18ftl" path="res://scenes/weapons/shotgun.tscn" id="12_erupl"]
-[ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://scenes/weapons/gun.tscn" id="13_2vq0s"]
 [ext_resource type="Script" uid="uid://f6jr3sqcf1dl" path="res://scripts/actor/player/player_input.gd" id="14_5f4fh"]
 [ext_resource type="Resource" uid="uid://dsk5usbvnbqi3" path="res://resources/global_resources/action_resource.tres" id="15_hh2ro"]
+[ext_resource type="PackedScene" uid="uid://bbfknmfp5j4s0" path="res://scenes/weapons/assault_riffle.tscn" id="16_jhyfq"]
 
 [sub_resource type="Resource" id="Resource_p2p2d"]
 resource_name = "movement  properties"
@@ -157,7 +157,7 @@ auto_instance_weapons = Array[PackedScene]([ExtResource("12_erupl")])
 resource_node = NodePath("../ResourceNode")
 collision_mask = 4
 
-[node name="Gun" parent="WeaponManager" node_paths=PackedStringArray("resource_node") instance=ExtResource("13_2vq0s")]
+[node name="AssaultRiffle" parent="WeaponManager" node_paths=PackedStringArray("resource_node") instance=ExtResource("16_jhyfq")]
 collision_mask = 5
 resource_node = NodePath("../../ResourceNode")
 

@@ -1,11 +1,11 @@
 [gd_scene load_steps=12 format=3 uid="uid://cmmx82t54wble"]
 
-[ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://addons/top_down/scenes/weapons/gun.tscn" id="1_tcvta"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/damage/properties/DamageTypeResource.gd" id="2_ky0bo"]
-[ext_resource type="Texture2D" uid="uid://bi8g0elk5ljha" path="res://addons/top_down/assets/images/weapon/sword_0.png" id="3_ah0df"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/damage/properties/DamageDataResource.gd" id="3_h2w8s"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/damage/properties/DamageStatusResource.gd" id="4_3xvip"]
-[ext_resource type="Resource" uid="uid://djdgiocrbvmt8" path="res://addons/top_down/resources/InstanceResources/projectiles/sword_slash_instance_resource.tres" id="5_88188"]
+[ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://scenes/weapons/gun.tscn" id="1_tcvta"]
+[ext_resource type="Script" uid="uid://csjpbdq3d13rl" path="res://scripts/damage/properties/damage_type_resource.gd" id="2_ky0bo"]
+[ext_resource type="Texture2D" uid="uid://b24o40qwaae24" path="res://assets/images/weapon/sword_0.png" id="3_ah0df"]
+[ext_resource type="Script" uid="uid://vu1uoqfhi7t3" path="res://scripts/damage/properties/damage_data_resource.gd" id="3_h2w8s"]
+[ext_resource type="Script" uid="uid://0j8h8jwr0bbk" path="res://scripts/damage/properties/damage_status_resource.gd" id="4_3xvip"]
+[ext_resource type="Resource" uid="uid://djdgiocrbvmt8" path="res://resources/instance_resources/projectiles/sword_slash_instance_resource.tres" id="5_88188"]
 
 [sub_resource type="Resource" id="Resource_h373d"]
 script = ExtResource("3_h2w8s")
@@ -106,9 +106,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sorlh"]
 _data = {
-"RESET": SubResource("Animation_ku8ja"),
-"slash_1": SubResource("Animation_k26j0"),
-"slash_2": SubResource("Animation_l1rlv")
+&"RESET": SubResource("Animation_ku8ja"),
+&"slash_1": SubResource("Animation_k26j0"),
+&"slash_2": SubResource("Animation_l1rlv")
 }
 
 [node name="Sword" instance=ExtResource("1_tcvta")]
@@ -119,7 +119,7 @@ texture = ExtResource("3_ah0df")
 
 [node name="AnimationPlayer" parent="RotatedNode/Sprite2D" index="0"]
 libraries = {
-"": SubResource("AnimationLibrary_sorlh")
+&"": SubResource("AnimationLibrary_sorlh")
 }
 
 [node name="WeaponKickback" parent="." index="2"]
