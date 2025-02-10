@@ -1,6 +1,8 @@
 class_name SafeTileTracker
 extends Node
 
+## 是否启用
+@export var enabled: bool
 @export var obstacle_tilemap_reference:ReferenceNodeResource
 @export var actor:Node2D
 
@@ -11,8 +13,15 @@ func _ready()->void:
 	assert(obstacle_tilemap_reference != null)
 	assert(actor != null)
 	
+	set_enabled(enabled)
 	tree_entered.connect(on_tree_enter)
 	on_tree_enter()
+
+
+func set_enabled(value:bool)->void:
+	enabled = value
+	set_physics_process(enabled)
+
 
 func on_tree_enter()->void:
 	obstacle_tilemap_reference.listen(self, _tilemap_layer_changed)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://cenq1bawfywu8"]
 
-[ext_resource type="Script" path="res://addons/top_down/scripts/actor/bots/BotInput.gd" id="1_qo7hy"]
-[ext_resource type="Script" path="res://addons/great_games_library/nodes/Navigation/TileNavigationGetter.gd" id="2_kpufw"]
-[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://addons/top_down/resources/global_resources/axis_multiplication_resource.tres" id="2_s6bq5"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/actor/bots/ProximityAttack.gd" id="3_4n00q"]
-[ext_resource type="Resource" uid="uid://dfx5wg7nqxg5b" path="res://addons/top_down/resources/arena_resources/obstacle_astargrid_resource.tres" id="3_54ctl"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/actor/bots/TargetFinder.gd" id="4_y3qb6"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/actor/bots/TargetDirection.gd" id="5_ekfo4"]
-[ext_resource type="Script" path="res://addons/top_down/scripts/actor/bots/TargetAim.gd" id="6_xkm0h"]
+[ext_resource type="Script" uid="uid://1cjxjkro1q0s" path="res://scripts/actor/bots/bot_input.gd" id="1_qo7hy"]
+[ext_resource type="Script" uid="uid://dote2k6bf8ftm" path="res://addons/great_games_library/nodes/Navigation/TileNavigationGetter.gd" id="2_kpufw"]
+[ext_resource type="Resource" uid="uid://dedx0gi4fowby" path="res://resources/global_resources/axis_multiplication_resource.tres" id="2_s6bq5"]
+[ext_resource type="Script" uid="uid://cs4yjtoofsw6d" path="res://scripts/actor/bots/proximity_attack.gd" id="3_4n00q"]
+[ext_resource type="Resource" uid="uid://dfx5wg7nqxg5b" path="res://resources/arena_resources/obstacle_astargrid_resource.tres" id="3_54ctl"]
+[ext_resource type="Script" uid="uid://clxxy1rh0n81r" path="res://scripts/actor/bots/target_finder.gd" id="4_y3qb6"]
+[ext_resource type="Script" uid="uid://bc5phxosaytqh" path="res://scripts/actor/bots/target_direction.gd" id="5_ekfo4"]
+[ext_resource type="Script" uid="uid://cbna1de7808tv" path="res://scripts/actor/bots/target_aim.gd" id="6_xkm0h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixqjj"]
 size = Vector2(1000, 500)

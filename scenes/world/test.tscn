@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://23tu1y40hl2t"]
+[gd_scene load_steps=33 format=3 uid="uid://23tu1y40hl2t"]
 
 [ext_resource type="Script" uid="uid://dpuxuju7geka6" path="res://scenes/world/test.gd" id="1_yokrj"]
 [ext_resource type="Script" uid="uid://dg7x1bfsyq76u" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNode.gd" id="2_ujbsv"]
@@ -10,13 +10,14 @@
 [ext_resource type="Script" uid="uid://m8yktmc6aswm" path="res://scripts/input/input_resource.gd" id="8_1nm11"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://resources/global_resources/score_resource.tres" id="9_avmm1"]
 [ext_resource type="Script" uid="uid://dgktxwaoxuao5" path="res://scripts/damage/damage_resource.gd" id="10_a11d0"]
-[ext_resource type="Script" uid="uid://cwgxak27q4k56" path="res://scripts/weapon_system/weapon_manager.gd" id="11_kafaw"]
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="11_knv3m"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://resources/room_resources/ysort_reference.tres" id="12_871wp"]
-[ext_resource type="PackedScene" uid="uid://ghnv48d18ftl" path="res://scenes/weapons/shotgun.tscn" id="12_erupl"]
-[ext_resource type="Script" uid="uid://f6jr3sqcf1dl" path="res://scripts/actor/player/player_input.gd" id="14_5f4fh"]
-[ext_resource type="Resource" uid="uid://dsk5usbvnbqi3" path="res://resources/global_resources/action_resource.tres" id="15_hh2ro"]
-[ext_resource type="PackedScene" uid="uid://bbfknmfp5j4s0" path="res://scenes/weapons/assault_riffle.tscn" id="16_jhyfq"]
+[ext_resource type="Script" path="res://scripts/game/player_spawner.gd" id="13_2vq0s"]
+[ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://resources/reference_node_resources/player_reference.tres" id="14_knv3m"]
+[ext_resource type="Resource" uid="uid://ceuk0khv7rbvr" path="res://resources/instance_resources/actors/player_instance_resource.tres" id="15_871wp"]
+[ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://resources/global_resources/scene_transition_resource.tres" id="16_jhyfq"]
+[ext_resource type="PackedScene" uid="uid://cfaobhr3r5ymj" path="res://scenes/arena/enemy_manager.tscn" id="17_871wp"]
+[ext_resource type="Script" uid="uid://u7ky6u2d8a5u" path="res://scripts/arena/spawn_point.gd" id="18_jhyfq"]
 
 [sub_resource type="Resource" id="Resource_p2p2d"]
 resource_name = "movement  properties"
@@ -148,25 +149,20 @@ script = ExtResource("11_knv3m")
 reference_node = NodePath("..")
 reference_resource = ExtResource("12_871wp")
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[node name="WeaponManager" type="Node2D" parent="." node_paths=PackedStringArray("resource_node")]
-script = ExtResource("11_kafaw")
-auto_instance_weapons = Array[PackedScene]([ExtResource("12_erupl")])
-resource_node = NodePath("../ResourceNode")
-collision_mask = 4
-
-[node name="AssaultRiffle" parent="WeaponManager" node_paths=PackedStringArray("resource_node") instance=ExtResource("16_jhyfq")]
-collision_mask = 5
-resource_node = NodePath("../../ResourceNode")
-
-[node name="PlayerInput" type="Node" parent="." node_paths=PackedStringArray("position_node", "resource_node")]
-script = ExtResource("14_5f4fh")
-position_node = NodePath("..")
-aim_offset = Vector2(0, 8)
-resource_node = NodePath("../ResourceNode")
-action_resource = ExtResource("15_hh2ro")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="PlayerSpawner" type="Marker2D" parent="."]
+script = ExtResource("13_2vq0s")
+player_reference = ExtResource("14_knv3m")
+player_instance_resource = ExtResource("15_871wp")
+scene_transition_resource = ExtResource("16_jhyfq")
+
+[node name="EnemyManager" parent="." instance=ExtResource("17_871wp")]
+wave_setup = Array[int]([10, 10, 10])
+
+[node name="EnemySpawnPoints" type="Node2D" parent="."]
+
+[node name="Spawn_0" type="Marker2D" parent="EnemySpawnPoints"]
+position = Vector2(134, 91)
+script = ExtResource("18_jhyfq")

@@ -31,10 +31,10 @@
 [ext_resource type="Script" uid="uid://brw5cb7771gfh" path="res://scripts/actor/player/camera_position_setter.gd" id="25_s80ev"]
 [ext_resource type="Resource" uid="uid://c5igju2sl4cdg" path="res://resources/camera_resources/camera_reference.tres" id="26_ljkqc"]
 [ext_resource type="Resource" uid="uid://b1yn036rka2tk" path="res://resources/camera_resources/camera_position_resource.tres" id="27_4bh7y"]
-[ext_resource type="Script" uid="uid://bluo304yx70fx" path="res://scripts/actor/player/safe_tile_tracker.gd" id="28_ww0nn"]
-[ext_resource type="Resource" uid="uid://ct82cq803r2si" path="res://resources/room_resources/obstacle_reference.tres" id="29_4dv8f"]
 [ext_resource type="Script" uid="uid://0haoiguuqhni" path="res://scripts/actor/player/hole_recovery.gd" id="30_n8poo"]
+[ext_resource type="Script" uid="uid://bluo304yx70fx" path="res://scripts/actor/player/safe_tile_tracker.gd" id="32_8uqew"]
 [ext_resource type="Script" uid="uid://r7xc2l5atbvu" path="res://scripts/actor/visual_invulnerability.gd" id="32_82fau"]
+[ext_resource type="Resource" uid="uid://ct82cq803r2si" path="res://resources/room_resources/obstacle_reference.tres" id="33_w2xlt"]
 
 [sub_resource type="Resource" id="Resource_u7p0r"]
 resource_name = "movement  properties"
@@ -310,7 +310,6 @@ resource_node = NodePath("../ResourceNode")
 collision_mask = 4
 
 [node name="Gun" parent="WeaponManager" index="0" node_paths=PackedStringArray("resource_node") instance=ExtResource("6_rnlhu")]
-collision_mask = 5
 resource_node = NodePath("../../ResourceNode")
 
 [node name="ReferencePlayer" type="Node" parent="." index="17" node_paths=PackedStringArray("reference_node")]
@@ -341,13 +340,12 @@ position_resource = ExtResource("27_4bh7y")
 target_node = NodePath("..")
 
 [node name="SafeTileTracker" type="Node" parent="." index="22" node_paths=PackedStringArray("actor")]
-script = ExtResource("28_ww0nn")
-obstacle_tilemap_reference = ExtResource("29_4dv8f")
+script = ExtResource("32_8uqew")
+obstacle_tilemap_reference = ExtResource("33_w2xlt")
 actor = NodePath("..")
 
-[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("safe_tile_tracker", "resource_node", "hole_trigger")]
+[node name="HoleRecovery" type="Node" parent="." index="23" node_paths=PackedStringArray("resource_node", "hole_trigger")]
 script = ExtResource("30_n8poo")
-safe_tile_tracker = NodePath("../SafeTileTracker")
 resource_node = NodePath("../ResourceNode")
 hole_trigger = NodePath("../HoleTrigger")
 
