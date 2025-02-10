@@ -1,3 +1,4 @@
+class_name EnemyWaveManager
 extends Node
 
 ## Variable that toggles gameplay mode
@@ -18,6 +19,8 @@ func _ready()->void:
 	fight_mode_resource.changed_true.connect(_on_fight_mode_true) # Setup 1
 	wave_count_resource.updated.connect(_on_wave_count_changed) # Setup 2
 	enemy_count_resource.updated.connect(_on_enemy_count_changed) # Setup 3
+	## TODO 测试启动
+	fight_mode_resource.set_value.call_deferred(true)
 
 func _exit_tree() -> void:
 	fight_mode_resource.set_value(false)
