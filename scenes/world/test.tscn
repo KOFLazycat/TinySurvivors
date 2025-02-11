@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://23tu1y40hl2t"]
+[gd_scene load_steps=34 format=3 uid="uid://23tu1y40hl2t"]
 
 [ext_resource type="Script" uid="uid://dpuxuju7geka6" path="res://scenes/world/test.gd" id="1_yokrj"]
 [ext_resource type="Script" uid="uid://dg7x1bfsyq76u" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNode.gd" id="2_ujbsv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://bq24flbt5ucoq" path="res://addons/great_games_library/resources/ReferenceNodeResource/ReferenceNodeSetter.gd" id="11_knv3m"]
 [ext_resource type="Resource" uid="uid://d1ck1axrd4kd4" path="res://resources/room_resources/ysort_reference.tres" id="12_871wp"]
 [ext_resource type="Script" uid="uid://1iudwwl7vkoc" path="res://scripts/game/player_spawner.gd" id="13_2vq0s"]
+[ext_resource type="PackedScene" uid="uid://bqh7iwpl0s1ha" path="res://scenes/screen_effects/screen_effects.tscn" id="13_iy7ja"]
 [ext_resource type="Resource" uid="uid://b8o2o4evevl8k" path="res://resources/reference_node_resources/player_reference.tres" id="14_knv3m"]
 [ext_resource type="Resource" uid="uid://ceuk0khv7rbvr" path="res://resources/instance_resources/actors/player_instance_resource.tres" id="15_871wp"]
 [ext_resource type="Resource" uid="uid://c5cbxaiec2jk1" path="res://resources/global_resources/scene_transition_resource.tres" id="16_jhyfq"]
@@ -148,6 +149,8 @@ list = Array[ExtResource("3_37g75")]([SubResource("Resource_37g75"), SubResource
 script = ExtResource("11_knv3m")
 reference_node = NodePath("..")
 reference_resource = ExtResource("12_871wp")
+
+[node name="ScreenEffects" parent="." instance=ExtResource("13_iy7ja")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
