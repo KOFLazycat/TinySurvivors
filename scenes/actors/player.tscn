@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bmp0g88dtijqw"]
+[gd_scene load_steps=57 format=3 uid="uid://bmp0g88dtijqw"]
 
 [ext_resource type="PackedScene" uid="uid://botai66n8rwt3" path="res://scenes/actors/actor.tscn" id="1_mvls6"]
 [ext_resource type="Script" uid="uid://bfrujoe7b8kfv" path="res://addons/great_games_library/nodes/ResourceNode/ResourceNodeItem.gd" id="2_20qkb"]
@@ -8,7 +8,6 @@
 [ext_resource type="Resource" uid="uid://c61lm3lfv4u6h" path="res://resources/health_resource/player_health.tres" id="4_y5gff"]
 [ext_resource type="Script" uid="uid://bywrj5osehdeq" path="res://addons/great_games_library/resources/ValueResource/BoolResource.gd" id="5_smnd7"]
 [ext_resource type="Script" uid="uid://1v8g05dfkx4g" path="res://scripts/actor/push_resource.gd" id="6_2ql4h"]
-[ext_resource type="PackedScene" uid="uid://bxf4p5yoajpdu" path="res://scenes/weapons/gun.tscn" id="6_rnlhu"]
 [ext_resource type="Resource" uid="uid://bgdeqbafv3q4r" path="res://resources/sounds/kill_player.tres" id="6_wov6i"]
 [ext_resource type="Script" uid="uid://m8yktmc6aswm" path="res://scripts/input/input_resource.gd" id="7_sciut"]
 [ext_resource type="Resource" uid="uid://5emqdks7qgbm" path="res://resources/global_resources/score_resource.tres" id="8_icjqh"]
@@ -309,7 +308,7 @@ auto_instance_weapons = Array[PackedScene]([ExtResource("11_nnusp"), ExtResource
 resource_node = NodePath("../ResourceNode")
 collision_mask = 4
 
-[node name="Gun" parent="WeaponManager" index="0" node_paths=PackedStringArray("resource_node") instance=ExtResource("6_rnlhu")]
+[node name="AssaultRiffle" parent="WeaponManager" index="0" node_paths=PackedStringArray("resource_node") instance=ExtResource("16_chj10")]
 resource_node = NodePath("../../ResourceNode")
 
 [node name="ReferencePlayer" type="Node" parent="." index="17" node_paths=PackedStringArray("reference_node")]
